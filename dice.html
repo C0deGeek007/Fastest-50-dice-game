@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dice roll</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style type="text/css">
+		body{
+			background-color: rgb(240, 240, 240);
+
+		}
+		img.dice{
+			display: block;
+  			margin-left: auto;
+  			margin-right: auto;
+  			padding-top: 8%;
+		}
+		.container_button{
+			padding-top: 8%;
+		}
+		.player1{
+			padding-left: 22%;
+			padding-top: 8%;
+			padding-right: auto;
+		}
+		.player2{
+			padding-left: 20%;
+			padding-top: 10%;
+		}
+		#button1{
+			background-color: rgb(106, 90, 205); /* Green */
+  			border: none;
+  			color: white;
+  			width: 120px;
+  			text-align: center;
+  			text-decoration: none;
+  			display: inline-block;
+  			font-size: 25px;
+  			margin: 4px 2px;
+  			padding: 32px 16px;
+  			cursor: default;
+
+		}
+		#button2{
+			background-color: rgb(106, 90, 205); /* Green */
+  			border: none;
+  			color: white;
+  			width: 120px;
+  			text-align: center;
+  			text-decoration: none;
+  			display: inline-block;
+  			font-size: 25px;
+  			margin: 4px 2px;
+  			padding: 32px 16px;
+  			cursor: default;
+
+		}
+		#reload{
+			background-color: rgb(106, 90, 205); /* Green */
+  			border: none;
+  			color: white;
+  
+  			text-align: center;
+  			text-decoration: none;
+  			display: inline-block;
+  			font-size: 25px;
+  			margin: 4px 2px;
+  			padding: 5px 5px;
+  			cursor: default;
+		}
+		.reload_pos{
+			padding-left: 19%;
+		}
+		.define2{
+			padding-left: 50%;
+		}
+		.define1{
+			padding-left: 50%;
+		}
+		
+}
+	</style>
+</head>
+<body>
+		<div ><img id="getimg" src='dice-1.png' class="dice"></div>
+		<div class=container_button>
+		<span class=player1>
+		
+		<button type="button" disabled= "disabled"  class="btn btn-primary" id="button1">0</button>
+		</span>
+		<span class="reload_pos">
+		<button type="button" class="btn btn-default btn-sm" id="reload" onclick="hello()">
+          <span class="glyphicon glyphicon-refresh"></span> 
+        </button>
+        </span>
+		<span class="player2">
+			
+			<button type="button" disabled= "disabled"  class="btn btn-primary" id="button2">0</button>
+		</span>
+	    </div>
+	    <div class="define1">
+	    <i style="font-size:24px" class="fa">&#xf060;</i>
+		<i style="font-size:24px" class="fa">&#xf061;</i>
+		</div>
+	<script type="text/javascript">
+		var count=0;
+		function next_window1(){
+			window.location.href = "file:///C:/Users/Sachin%20Kumar/Desktop/dice_game/dice_end1.html";
+		}
+		function next_window2(){
+			window.location.href = "file:///C:/Users/Sachin%20Kumar/Desktop/dice_game/dice_end2.html";
+		}
+		function hello()
+		{
+			var img=['dice-1.png','dice-2.png','dice-3.png','dice-4.png','dice-5.png','dice-6.png'];
+			//document.getElementById("getimg").src = "dice-2.png";
+			var Index=Math.floor(Math.random() * 6);
+			console.log(Index);
+			document.getElementById("getimg").src = img[Index];
+			if(count%2==0){
+				document.getElementById("button1").innerHTML=(parseInt(document.getElementById("button1").innerHTML)+Index+1);
+				count=count+1;
+				console.log("count =",count);
+			}
+			else{
+				document.getElementById("button2").innerHTML=(parseInt(document.getElementById("button2").innerHTML)+Index+1);
+				count=count+1;
+				console.log("count =",count);
+			}
+			if(parseInt(document.getElementById("button1").innerHTML)>50)
+			{
+				next_window1();
+			}
+			if(parseInt(document.getElementById("button2").innerHTML)>50)
+			{
+				next_window2();
+			}
+		}
+	</script>
+
+</body>
+</html>
